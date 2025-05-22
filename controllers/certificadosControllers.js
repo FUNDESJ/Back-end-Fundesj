@@ -3,6 +3,10 @@ import { Certificado } from '../models/Certificado.js'
 export const listarCertificado = async (req, res) => {
     try {
         const certificados = await Certificado.findAll()
+        if (certificados.length == 0) {
+            res.status(200).send({Mensagem: "0 certificados cadastrados"})
+
+        }
         res.status(200).send(certificados)
     } catch (erro) {
         console.log("erro", erro)
@@ -50,10 +54,10 @@ export const deletarCertificado = async (req, res) => {
     try {
         const resposta = await Certificado.findOne({ where: { codigo } });
         if (!resposta) return res.status(404).send({ mensagem: "Certificado nao encontrado" });
-        await Certificado.destroy({where: {codigo}});
+        await Certificado.destroy({ where: { codigo } });
         res.status(204).send({ Mensagem: "Linha deletada com sucesso" })
     } catch (erro) {
         console.log(erro);
-        res.status(500).send({"Mensagem": erro})
+        res.status(500).send({ "Mensagem": erro })
     }
 }

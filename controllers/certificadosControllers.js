@@ -30,13 +30,13 @@ export const adicionarCertificado = async (req, res) => {
 export const pesquisarCertificado = async (req, res) => {
     const { codigo } = req.params;
     try {
-        const certificadoEscolhido = await Certificado.findAll({ where: { codigo } })
+        const certificadoEscolhido = await Certificado.findOne({ where: { codigo } })
         if (!certificadoEscolhido || certificadoEscolhido.length == 0) return res.status(404).send("Certificado nao encontrado");
 
         res.status(200).send(certificadoEscolhido)
     } catch (erro) {
         console.log(erro);
-        res.status(404).send({ "Mensagem": erro })
+        res.status(500).send({ "Mensagem": erro })
     }
 }
 

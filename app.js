@@ -12,7 +12,8 @@ app.use(router)
 
 try {
     await database.authenticate()
-    //await database.sync({ alter: true })
+    
+await database.sync({ alter: true })
     console.log('Banco conectado e sincronizado')
 } catch (e) {
     console.error('Erro na conexão com o banco', e)

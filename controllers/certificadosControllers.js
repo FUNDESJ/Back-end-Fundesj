@@ -3,7 +3,7 @@ import { Certificado } from '../models/Certificado.js'
 export const listarCertificado = async (req, res) => {
     try {
         const certificados = await Certificado.findAll()
-        if (certificados.length == 0) {
+        if (!certificados || certificados.length < 0) {
            return res.status(404).send("Nenhum certificado encontrado")
 
         }

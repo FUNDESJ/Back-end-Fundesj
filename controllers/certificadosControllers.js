@@ -31,7 +31,7 @@ export const pesquisarCertificado = async (req, res) => {
     const { codigo } = req.params;
     try {
         const certificadoEscolhido = await Certificado.findAll({ where: { codigo } })
-        if (!certificadoEscolhido) return res.status(404).send("Certificado nao encontrado");
+        if (!certificadoEscolhido || certificadoEscolhido.length == 0) return res.status(404).send("Certificado nao encontrado");
 
         res.status(200).send(certificadoEscolhido)
     } catch (erro) {

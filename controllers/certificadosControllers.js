@@ -4,7 +4,7 @@ export const listarCertificado = async (req, res) => {
     try {
         const certificados = await Certificado.findAll()
         if (certificados.length == 0) {
-            res.status(200).send({Mensagem: "0 certificados cadastrados"})
+           return res.status(200).send({Mensagem: "0 certificados cadastrados"})
 
         }
         res.status(200).send(certificados)

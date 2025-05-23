@@ -6,7 +6,7 @@ export const listarUsuario = async (req, res) => {
         if(!usuarios || usuarios.length === 0){
             return res.status(404).send("Nenhum usuario encontrado")
         }
-        res.status(200).send("Deu certo")
+        res.status(200).send({usuarios})
     } catch (erro){
         console.log(erro)
         res.status(404).send({"Mensagem": erro})

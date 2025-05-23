@@ -19,7 +19,7 @@ export const adicionarCertificado = async (req, res) => {
 
     try {
         const consulta = await Certificado.findOne({ where: { codigo } });
-        if (consulta) return res.status(500).send({ mensagem: "Codigo ja cadastrado" })
+        if (consulta.length > 0) return res.status(500).send({ mensagem: "Codigo ja cadastrado" })
         const novoCertificado = await Certificado.create({ nome, curso, horas, codigo, link });
         res.status(201).send({ novoCertificado })
     } catch (erro) {

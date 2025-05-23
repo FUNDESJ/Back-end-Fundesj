@@ -5,13 +5,12 @@ import { autenticar } from '../middlewares/authMiddleware.js';
 export const router = express.Router()
 
 
+router.post('/usuario/login', login);
+router.post('/usuario/criar', criarUsuario);
 router.get('/certificado', listarCertificado);
-router.get('/certificado/:codigo', pesquisarCertificado );
-router.post('/certificado', adicionarCertificado);
+router.get('/certificado/:codigo', pesquisarCertificado);
 router.put('/certificado/:codigo', editarCertificado);
-router.delete('/certificado/:codigo', deletarCertificado);
 
-router.post('/usuario', login);
-router.post('/usuario', criarUsuario)
 
-router.use(autenticar)
+router.post('/certificado', autenticar, adicionarCertificado);
+router.delete('/certificado/:codigo', autenticar, deletarCertificado);

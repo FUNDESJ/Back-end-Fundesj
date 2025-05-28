@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { database } from '../database/index.js'
 
-export const Palestra = database.define('Palestra', {
+export const Inscricao = database.define('Inscricao', {
     nome: {
         type: DataTypes.STRING
     },
@@ -11,12 +11,14 @@ export const Palestra = database.define('Palestra', {
     telefone: {
         type: DataTypes.STRING
     },
-    palestra: {
+    titulo: {
         type: DataTypes.STRING
     },
     comoConheceu: {
         type: DataTypes.STRING
     }
 }, {
-    timestamps: false
+    timestamps: false,
+    tableName: 'inscricoes', // nome real da tabela
+    underscored: true 
 })

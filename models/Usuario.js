@@ -11,4 +11,4 @@ export const Usuario = database.define('Usuario', {
  
 }, {
     timestamps: false
-})
+}) 

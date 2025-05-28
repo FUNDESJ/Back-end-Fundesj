@@ -1,6 +1,6 @@
 import express from 'express'
-import { listarCertificado, adicionarCertificado, pesquisarCertificado, editarCertificado, deletarCertificado } from '../controllers/certificadosControllers.js'
-import { criarUsuario, login } from '../controllers/usuariosControllers.js';
+import { listarCertificado, adicionarCertificado, pesquisarCertificado, editarCertificado, deletarCertificado } from '../controllers/certificados/certificadosControllers.js'
+import { criarUsuario, login } from '../controllers/certificados/usuariosControllers.js';
 import { autenticar } from '../middlewares/authMiddleware.js';
 export const router = express.Router()
 

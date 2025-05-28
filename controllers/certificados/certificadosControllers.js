@@ -1,4 +1,4 @@
-import { Certificado } from '../models/Certificado.js'
+import { Certificado } from '../../models/Certificado.js'
 
 export const listarCertificado = async (req, res) => {
     try {

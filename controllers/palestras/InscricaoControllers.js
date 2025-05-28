@@ -34,7 +34,7 @@ export const listarInscritos = async(req, res) =>{
 export const buscarInscritos = async(req, res) =>{
     const {titulo} = req.params; 
     try{
-        const consulta = await Inscricao.findAll({where: titulo})
+        const consulta = await Inscricao.findAll({where: {titulo}})
         if(!consulta) return res.status(404).send({Mensagem: "Palestra nao encontrada"})
         
         res.status(200).send(consulta)
